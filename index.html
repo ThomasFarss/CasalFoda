@@ -106,7 +106,7 @@
   }
   .frame {
     position: relative;
-    width: min(240px, 62vw);
+    width: min(220px, 38vw);
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     padding: 7px;
@@ -255,6 +255,20 @@
     font-size: 0.9rem;
   }
   footer strong { color: var(--gold-soft); }
+
+  @media (max-width: 480px) {
+    header { padding: 2.5rem 1rem 0.5rem; }
+    header p { font-size: 0.95rem; }
+    .photo-section { padding: 1rem 1rem 2rem; }
+    .duo-frames { gap: -0.8rem; }
+    .link-ring { font-size: 1.6rem; margin: 0 -0.3rem; }
+    .photo-caption { font-size: 1.1rem; padding: 0 0.5rem; }
+    .card-grid { gap: 1rem; padding: 0.5rem 1rem 2rem; }
+    .card { padding: 1.4rem 1.2rem; }
+    .quote-box { padding: 1.8rem 1.3rem; margin: 0.5rem 1rem 3rem; }
+    .quote-box p { font-size: 1.2rem; }
+    footer { padding: 1.5rem 1rem 2.5rem; font-size: 0.82rem; }
+  }
 </style>
 </head>
 <body>
