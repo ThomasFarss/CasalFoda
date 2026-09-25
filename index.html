@@ -70,6 +70,13 @@
     background-clip: text;
     color: transparent;
     font-weight: 600;
+    filter: drop-shadow(0 4px 20px rgba(255,143,179,0.25));
+  }
+  .divider {
+    width: 90px;
+    height: 2px;
+    margin: 1.3rem auto 0;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
   }
   header p {
     color: var(--muted);
@@ -125,22 +132,32 @@
     50% { box-shadow: 0 0 0 10px rgba(232,194,122,0.15), 0 25px 70px rgba(255,143,179,0.4); }
   }
   .frame-inner {
+    position: relative;
     width: 100%;
     height: 100%;
     border-radius: 50%;
     overflow: hidden;
     background: linear-gradient(135deg, #3d1a52, #1a1035);
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
   .frame-inner img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.4s ease;
+  }
+  .frame:hover .frame-inner img {
+    transform: scale(1.08);
   }
   .frame-placeholder {
+    display: none;
+    position: absolute;
+    inset: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     padding: 1.5rem;
     color: var(--muted);
@@ -177,6 +194,18 @@
     border-radius: 18px;
     padding: 1.8rem 1.5rem;
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fade-up 0.7s ease forwards;
+  }
+  .card:nth-child(1) { animation-delay: 0.05s; }
+  .card:nth-child(2) { animation-delay: 0.15s; }
+  .card:nth-child(3) { animation-delay: 0.25s; }
+  .card:nth-child(4) { animation-delay: 0.35s; }
+  .card:nth-child(5) { animation-delay: 0.45s; }
+  .card:nth-child(6) { animation-delay: 0.55s; }
+  @keyframes fade-up {
+    to { opacity: 1; transform: translateY(0); }
   }
   .card:hover {
     transform: translateY(-6px);
@@ -236,6 +265,7 @@
   <div class="eyebrow">Feito com amor para</div>
   <h1>Vocês Dois 💍</h1>
   <p>Um cantinho especial para um casal foda demais</p>
+  <div class="divider"></div>
 </header>
 
 <section class="photo-section">
@@ -244,7 +274,7 @@
     <div class="frame">
       <div class="frame-inner">
         <img src="foto-dele.jpg" alt="Foto dele" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-        <div class="frame-placeholder" style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%;">
+        <div class="frame-placeholder">
           <span>📸</span>
           foto-dele.jpg
         </div>
@@ -254,7 +284,7 @@
     <div class="frame right">
       <div class="frame-inner">
         <img src="foto-dela.jpg" alt="Foto dela" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-        <div class="frame-placeholder" style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%;">
+        <div class="frame-placeholder">
           <span>📸</span>
           foto-dela.jpg
         </div>
